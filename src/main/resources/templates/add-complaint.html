@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Complaint | Complaint System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .complaint-container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+        }
+        .form-control {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .form-control:focus {
+            background: transparent;
+            border-color: #ff6b6b;
+        }
+        .btn-custom {
+            background-color: #ff6b6b;
+            color: white;
+            font-size: 1rem;
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #ff4757;
+        }
+        .btn-secondary {
+            background-color: #888;
+            color: white;
+            width: 100%;
+            border-radius: 8px;
+        }
+        .btn-secondary:hover {
+            background-color: #666;
+        }
+        .navbar {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg position-fixed left-0 top-0 right-0">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Complaint Management</a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Complaint Form Container -->
+<div class="complaint-container mt-5">
+    <h2 class="mb-3">Submit a Complaint</h2>
+    
+    <form th:action="@{/complaints/add}" method="post" th:object="${complaint}">
+        <div class="mb-3">
+            <input type="text" class="form-control" th:field="*{title}" placeholder="Enter complaint title" required>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" th:field="*{description}" rows="4" placeholder="Describe your complaint" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom mb-2">Submit Complaint</button>
+        <a class="btn btn-secondary" th:href="@{/complaints}">Cancel</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
