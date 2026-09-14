@@ -25,6 +25,9 @@ Thymeleaf
 HTML / CSS
 Maven / Gradle
 Project Structure
+## Project Structure
+
+```text
 cms/
 ├── src/
 │   ├── main/
@@ -38,19 +41,17 @@ cms/
 │   │   │       ├── security/
 │   │   │       └── service/
 │   │   └── resources/
-│       ├── templates/
-│       └── application.properties
-│
-└── test/
-    └── java/
-
+│   │       ├── templates/
+│   │       └── application.properties
+│   └── test/
+│       └── java/
 ├── gradle/
 ├── build.gradle
 ├── pom.xml
 ├── settings.gradle
 ├── gradlew
 └── gradlew.bat
-
+```
 Database Setup
 
 This project uses MySQL.
